@@ -12,9 +12,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.GameView">
    <children>
-      <ImageView fitHeight="406.0" fitWidth="600.0">
+      <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
-            <Image url="@../../../../../../../Pictures/Saved%20Pictures/v1013-p-0024a.jpg" />
+            <Image url="@../background.jpg" />
          </image>
       </ImageView>
       <Circle fx:id="ball" fill="#e4a4d6" layoutX="300.0" layoutY="200.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" />
@@ -27,9 +27,9 @@
       </Label>
       <MenuBar>
         <menus>
-          <Menu fx:id="playMenu" mnemonicParsing="false" text="Play" />
-          <Menu fx:id="leaderboardMenu" mnemonicParsing="false" text="Leaderboard" />
-          <Menu fx:id="profileMenu" mnemonicParsing="false" text="Profile" />
+          <Menu fx:id="playMenu" mnemonicParsing="false" onAction="#handlePlayMenu" text="Play" />
+          <Menu fx:id="leaderboardMenu" mnemonicParsing="false" onAction="#handleLeaderboardMenu" text="Leaderboard" />
+          <Menu fx:id="profileMenu" mnemonicParsing="false" onAction="#handleProfileMenu" text="Profile" />
         </menus>
       </MenuBar>
    </children>

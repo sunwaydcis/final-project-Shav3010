@@ -2,16 +2,18 @@ package ponggame.view
 
 import ponggame.PongGame
 import javafx.fxml.FXML
-import javafx.scene.shape.{Circle, Rectangle}
-import javafx.scene.control.Label
-import javafx.scene.input.KeyEvent
-import javafx.event.ActionEvent
+import scalafx.scene.shape.{Circle, Rectangle}
+import scalafx.scene.control.Label
+import scalafx.scene.input.KeyEvent
+import scalafx.event.ActionEvent
+import scalafx.scene.Scene
+import scalafx.scene.input.KeyCode
 
 @FXML
 class GameController:
-  @FXML private var ball: Circle = null
-  @FXML private var bar: Rectangle = null
-  @FXML private var scoreLabel: Label = null
+  @FXML private var ball: Circle = _
+  @FXML private var bar: Rectangle = _
+  @FXML private var scoreLabel: Label = _
   private var score = 0
   private var dx = 2.0
   private var dy = 2.0
@@ -21,10 +23,10 @@ class GameController:
     ball.layoutY = 200
 
   def handleKeyPress(event: KeyEvent): Unit =
-    event.getCode match
-      case javafx.scene.input.KeyCode.Left =>
+    event.code match
+      case KeyCode.Left =>
         bar.setLayoutX(bar.getLayoutX - 20)
-      case javafx.scene.input.KeyCode.Right =>
+      case KeyCode.Right =>
         bar.setLayoutX(bar.getLayoutX + 20)
       case _ =>
 

@@ -1,36 +1,45 @@
 package ponggame.view
 
-import ponggame.model.{Leaderboard, User}
+import ponggame.model.User
+import ponggame.PongGame
+import javafx.fxml.FXML
+import javafx.scene.control.{Label, TableColumn, TableView}
+import scalafx.beans.property.{StringProperty, IntegerProperty}
 import scalafx.collections.ObservableBuffer
-import scalafx.scene.control.{TableColumn, TableView}
-import scalafx.scene.layout.AnchorPane
+import scalafx.Includes._
+import scalafx.beans.value.ObservableValue
 
+@FXML
 class LeaderboardController:
-
-  // FXML injected elements
-  var leaderboardPane: AnchorPane = _
-  var leaderboardTable: TableView[User] = _
-  var nameColumn: TableColumn[User, String] = _
-  var scoreColumn: TableColumn[User, Int] = _
-
-  // Observable buffer for leaderboard data
-  private val leaderboardData = ObservableBuffer[User]()
-
-  // Reference to the leaderboard model
-  private val leaderboard = new Leaderboard()
+  @FXML
+  private var leaderboardTable: TableView[User] = null
+  @FXML
+  private var nameColumn: TableColumn[User, String] = null
+  @FXML
+  private var scoreColumn: TableColumn[User, Int] = null
+  @FXML
+  private var nameLabel: Label = _
+  @FXML
+  private var scoreLabel: Label = _
 
   def initialize(): Unit =
-    // Bind table columns to User properties
-    nameColumn.cellValueFactory = _.value.nameProperty
-    scoreColumn.cellValueFactory = _.value.highScoreProperty
+    nameColumn.cellValueFactory = {_.value.name }
+    scoreColumn.cellValueFactory = {_.value.highestScore}
+     
+    showLeaderboardDetails(None)
 
-    // Populate leaderboard data
-    leaderboardData ++= leaderboard.getTopPlayers()
-    leaderboardTable.items = leaderboardData
+    leaderboardTable.selectionModel().selectedItem.onChange(
+      (_, _, newValue) => showLeaderboardDetails(Option(newValue))
+    )
 
-  // Refresh leaderboard data (useful for updates)
-  def refreshLeaderboard(): Unit =
-    leaderboardData.clear()
-    leaderboardData ++= leaderboard.getTopPlayers()
-
+    leaderboardTable.items = ponggame.PongGame.userData
+    
+  private def showLeaderboardDetails(user: Option[User]): Unit
+    user match
+      case Some(u) =>
+        nameLabel.text <== u.name
+        scoreLabel.text = u.highestScore.value.toString
+      case None =>
+        nameLabel.text = ""
+        scoreLabel.text = ""
 end LeaderboardController
