@@ -4,16 +4,16 @@ import ponggame.PongGame
 import javafx.fxml.FXML
 import scalafx.scene.shape.{Circle, Rectangle}
 import scalafx.scene.control.Label
-import scalafx.scene.input.KeyEvent
-import scalafx.event.ActionEvent
-import scalafx.scene.Scene
-import scalafx.scene.input.KeyCode
+import scalafx.scene.input.{KeyEvent, KeyCode}
 
 @FXML
 class GameController:
-  @FXML private var ball: Circle = _
-  @FXML private var bar: Rectangle = _
-  @FXML private var scoreLabel: Label = _
+  @FXML 
+  private var ball: Circle = _
+  @FXML 
+  private var bar: Rectangle = _
+  @FXML 
+  private var scoreLabel: Label = _
   private var score = 0
   private var dx = 2.0
   private var dy = 2.0
@@ -52,9 +52,3 @@ class GameController:
       contentText = s"Your score: $score"
     alert.showAndWait()
     PongGame.showLeaderboard()
-
-  def handleMenu(action: ActionEvent): Unit =
-    action.getSource.asInstanceOf[javafx.scene.control.MenuItem].getText match
-      case "Play"        => PongGame.showGameView()
-      case "Leaderboard" => PongGame.showLeaderboard()
-      case "Profile"     => PongGame.showProfileView()

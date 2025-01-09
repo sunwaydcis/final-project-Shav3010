@@ -8,17 +8,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ponggame/view/StartGameController.scala">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ponggame.view.StartGameController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0">
          <image>
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="211.0" layoutY="226.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="145.0">
+      <Button fx:id="startButton" layoutX="211.0" layoutY="226.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="145.0">
          <graphic>
-            <ImageView fx:id="startButton" fitHeight="63.0" fitWidth="150.0" focusTraversable="true">
+            <ImageView fitHeight="63.0" fitWidth="150.0" focusTraversable="true">
                <image>
                   <Image url="@../start.png" />
                </image>
