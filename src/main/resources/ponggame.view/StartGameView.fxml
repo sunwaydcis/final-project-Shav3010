@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ponggame.view.StartGameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ponggame.view.StartGameController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0">
+      <ImageView fitHeight="400.0" fitWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="startButton" layoutX="211.0" layoutY="226.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="145.0">
+      <Button fx:id="startButton" layoutX="211.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="37.0" prefWidth="145.0">
          <graphic>
             <ImageView fitHeight="63.0" fitWidth="150.0" focusTraversable="true">
                <image>
@@ -24,12 +24,12 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="164.0" layoutY="118.0" text="Enter your name:" textFill="#1321e4cf">
+      <Label layoutX="160.0" layoutY="121.0" text="Enter your name:" textFill="#1321e4cf">
          <font>
-            <Font name="Harlow Solid Italic" size="22.0" />
+            <Font name="Castellar" size="24.0" />
          </font>
       </Label>
       <TextField fx:id="nameField" layoutX="158.0" layoutY="159.0" prefHeight="41.0" prefWidth="272.0" />
-       <Label fx:id="errorLabel" style="-fx-text-fill: red;" />
+       <Label fx:id="errorLabel" layoutX="227.0" layoutY="203.0" prefHeight="17.0" prefWidth="146.0" style="-fx-text-fill: red;" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="227.0" AnchorPane.rightAnchor="227.0" AnchorPane.topAnchor="203.0" />
    </children>
 </AnchorPane>

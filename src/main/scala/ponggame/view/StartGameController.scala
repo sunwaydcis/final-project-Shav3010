@@ -4,7 +4,7 @@ import ponggame.PongGame
 import ponggame.model.Player
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, TextField, Label}
-import scalafx.event.ActionEvent
+import javafx.event.ActionEvent
 import scalafx.Includes.{jfxTextField2sfx, jfxLabel2sfx}
 
 @FXML
@@ -22,10 +22,13 @@ class StartGameController:
     this.mainApp = app
     errorLabel.text = ""
 
+  @FXML
   def handleStartButton(action: ActionEvent): Unit =
-    val name = nameField.text.value.trim
-    if name.isEmpty then
+    val playerName = nameField.getText
+    if playerName.isEmpty then
       errorLabel.text = "Name cannot be empty!"
     else
-      PongGame.playerName = Some(Player(name, 0))
+      val newPlayer = new Player(playerName, 0)
+      PongGame.playerName = Some(newPlayer)
+      PongGame.playerData += newPlayer
       PongGame.showGameView() // Navigate to GameView

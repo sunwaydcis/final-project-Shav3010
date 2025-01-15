@@ -7,10 +7,10 @@ import ponggame.model.Player
 class ProfileController:
 
   @FXML
-  private var playerName: Label = _
+  private var playerName: Label = null
   @FXML
-  private var highestScore: Label = _
+  private var highestScore: Label = null
 
   def initialize(player: Player): Unit =
     playerName.setText(player.name.value)
-    highestScore.setText(s"${player.highestScore}")
+    highestScore.setText(player.highestScore.value.toString)

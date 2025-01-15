@@ -7,7 +7,7 @@ import scalafx.collections.ObservableBuffer
 class Leaderboard(initName: String, initScore: Int):
   private val players = ObservableBuffer[Player]()
 
-  def getTopPlayers(): Seq[Player] = 
+  def getTopPlayers(): Seq[Player] =
 
     players.sortBy(-_.highestScore.value).toSeq
 

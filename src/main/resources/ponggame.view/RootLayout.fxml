@@ -2,15 +2,25 @@
 
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ponggame.view.RootLayoutController">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
          <menus>
-            <Menu fx:id="playMenu" mnemonicParsing="false" onAction="#handlePlayMenu" text="Play" />
-            <Menu fx:id="leaderboardMenu" mnemonicParsing="false" onAction="#handleLeaderboardMenu" text="Leaderboard" />
-            <Menu fx:id="profileMenu" mnemonicParsing="false" onAction="#handleProfileMenu" text="Profile" />
+            <Menu fx:id="playMenu" mnemonicParsing="false" text="Play">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handlePlayMenu" text="Start Game" />
+               </items></Menu>
+            <Menu fx:id="leaderboardMenu" mnemonicParsing="false" text="Leaderboard">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleLeaderboardMenu" text="Ranking" />
+               </items></Menu>
+            <Menu fx:id="profileMenu" mnemonicParsing="false" text="Profile">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleProfileMenu" text="Player Details" />
+               </items></Menu>
          </menus>
       </MenuBar>
    </top>

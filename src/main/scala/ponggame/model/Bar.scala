@@ -1,6 +1,6 @@
 package ponggame.model
 
-import scalafx.beans.property.{DoubleProperty}
+import scalafx.beans.property.DoubleProperty
 import scalafx.scene.shape.Rectangle
 import scalafx.scene.paint.Color
 import scalafx.Includes.jfxRectangle2sfx

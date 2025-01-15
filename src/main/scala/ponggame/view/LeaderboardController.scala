@@ -4,10 +4,10 @@ import ponggame.model.Player
 import ponggame.PongGame
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, TableColumn, TableView}
-import scalafx.beans.property.{StringProperty, IntegerProperty}
+import scalafx.beans.property.{IntegerProperty, StringProperty}
 import scalafx.collections.ObservableBuffer
-import scalafx.Includes._
-import scalafx.beans.value.ObservableValue
+import scalafx.Includes.*
+
 
 @FXML
 class LeaderboardController:
@@ -15,8 +15,6 @@ class LeaderboardController:
   private var leaderboardTable: TableView[Player] = null
   @FXML
   private var nameColumn: TableColumn[Player, String] = null
-  @FXML
-  private var scoreColumn: TableColumn[Int, Int] = null
   @FXML
   private var nameLabel: Label = null
   @FXML
@@ -26,7 +24,7 @@ class LeaderboardController:
     leaderboardTable.items = PongGame.playerData
 
     nameColumn.cellValueFactory = _.value.name
-     
+
     showPlayerDetails(None)
 
     leaderboardTable.selectionModel().selectedItem.onChange(
